@@ -1,0 +1,85 @@
+---
+title: "Dashboard with Shiny"
+output: flexdashboard::flex_dashboard
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+type_of_meal <- unique(chickwts$feed)
+weights <- as.integer(summary(chickwts$weight))
+```
+
+Sidebar {.sidebar}
+=====================================
+
+This is test with chickwts dataset. I am learning how to use this.
+```{r}
+selectInput("type_of_meal", label = "Type of Meal",
+            choices = type_of_meal, selected = type_of_meal[1])
+
+sliderInput("weights", label = "Weights",
+            min = weights[1], max = weights[6], value = weights[3], step = 50)
+
+```
+
+
+Page 1: column wise 
+===================================== 
+
+Column {data-width=700}
+-------------------------------------
+
+### Column 1 Row 1
+
+```{r}
+renderPlot({
+  plot(chickwts$feed == input$type_of_meal & chickwts$weight < input$weights)
+})
+```
+
+### Column 1 Row 2
+
+```{r}
+# renderText(print(class(input$weights)))
+renderPlot({
+  values <- chickwts[chickwts$weight < input$weights, 1] 
+  plot(values)})
+```
+
+Column {data-width=300}
+-------------------------------------
+### Column 2 Row 2
+
+```{r}
+
+```
+
+Page 2 {data-orientation=rows}
+=====================================
+
+Row {data-height=200}
+-------------------------------------
+
+### Column 1 Row 1
+
+```{r}
+
+```
+
+Row {data-height=800}
+-------------------------------------
+
+### Column 1 Row 1 
+
+```{r}
+
+```
+
+
+### Column 2 Row 1
+
+```{r}
+
+```
+

@@ -1,0 +1,63 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+Page 1: column wise 
+===================================== 
+
+Column {data-width=700}
+-------------------------------------
+
+### Column 1 Row 1
+
+```{r}
+
+```
+
+### Column 1 Row 2
+
+```{r}
+
+```
+Column {data-width=300}
+-------------------------------------
+### Column 2 Row 2
+
+```{r}
+
+```
+
+Page 2 {data-orientation=rows}
+=====================================
+
+Row {data-height=200}
+-------------------------------------
+
+### Column 1 Row 1
+
+```{r}
+
+```
+
+Row {data-height=800}
+-------------------------------------
+
+### Column 1 Row 1 
+
+```{r}
+
+```
+
+
+### Column 2 Row 1
+
+```{r}
+
+```
+

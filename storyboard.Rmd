@@ -1,0 +1,31 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+### Frame 1 
+
+```{r}
+
+```
+
+*** 
+
+here we put some comments about the story 
+
+### Frame 2 {data-commentary-width=400} 
+
+```{r}
+
+```
+
+*** 
+
+some other data ... 
+

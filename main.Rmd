@@ -1,0 +1,75 @@
+---
+title: "MyFirstFlexDashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    # orientation: columns
+    orientation: rows
+    # vertical_layout: fill 
+    vertical_layout: scroll
+    navbar:
+      - { title: "About", href: "https://example.com/about", align: left }
+---
+
+```{r setup, include=FALSE}
+if (!require("flexdashboard")) install.packages("flexdashboard")
+if (!require("data.table")) install.packages("data.table")
+if (!require("tidyverse")) install.packages("tidyverse")
+if (!require("DT")) install.packages('DT')
+```
+
+<!-- Column {data-width=650} {.tabset .tabset-fade} -->
+Row
+-----------------------------------------------------------------------
+
+### Number of whatever
+```{r}
+valueBox(12, icon = "fa-pencil", color = "warning")
+```
+
+### patched hosts
+```{r}
+valueBox(80, icon = "fa-pencil", color = "success")
+```
+
+### success level 
+```{r}
+gauge(80, min = 0, max = 100, symbol = '%', gaugesectors(
+  success = c(80, 100), warning = c(40, 79), danger = c(0, 39)
+))
+```
+
+<!-- this is a test for *chart 2* -->
+
+<!-- ```{r} -->
+<!-- datatable(mtcars, class = "display", caption = "this is tittle") -->
+<!-- ``` -->
+<!-- ### chart tabset 2 -->
+
+<!-- this a test for _chart 2_ -->
+<!-- ```{r} -->
+<!-- mtcars -->
+<!-- ``` -->
+
+
+<!-- column {data-width=350} -->
+Row 
+-----------------------------------------------------------------------
+
+### tibble example
+
+```{r fig.width=5, fig.height=5}
+plot(cars)
+```
+
+### data.table example
+
+```{r fig.width=5, fig.height=5}
+valueBox(nrow(mtcars), icon = "fa-pencil", color = "warning")
+```
+
+### data.table example
+```{r fig.width=5, fig.height=5}
+gauge(80, min = 0, max = 100, symbol = '%', gaugeSectors(
+  success = c(80, 100), warning = c(40, 79), danger = c(0, 39)
+))
+```

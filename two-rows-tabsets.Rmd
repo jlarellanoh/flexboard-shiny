@@ -1,0 +1,59 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: row 
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+    
+Row {.tabset}
+-------------------------------------
+
+### Chart Row 1 Column 1 
+
+```{r}
+
+```
+
+### Chart Row 1 Column 2 
+
+```{r}
+
+```
+
+
+Row {.tabset .tabset-fade}
+-------------------------------------
+
+### Chart Row 2 Column 1 
+
+```{r}
+
+```
+
+
+### Chart Row 2 Column 2 
+
+```{r}
+
+```
+
+
+### Chart Row 2 Column 3 
+
+```{r}
+
+```
+
+
+### Chart Row 2 Column 4 
+
+```{r}
+
+```
+
