@@ -6,6 +6,7 @@ runtime: shiny
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+library(DT)
 type_of_meal <- unique(chickwts$feed)
 weights <- as.integer(summary(chickwts$weight))
 ```
@@ -34,16 +35,17 @@ Column {data-width=700}
 
 ```{r}
 renderPlot({
-  plot(chickwts$feed == input$type_of_meal & chickwts$weight < input$weights)
+  dt <- chickwts[  chickwts$feed == input$type_of_meal
+                 & chickwts$weight <= input$weights, ] 
+  plot(dt$feed, dt$weight)
 })
 ```
 
 ### Column 1 Row 2
 
 ```{r}
-# renderText(print(class(input$weights)))
 renderPlot({
-  values <- chickwts[chickwts$weight < input$weights, 1] 
+  values <- chickwts$weight[chickwts$weight <= input$weights] 
   plot(values)})
 ```
 
@@ -52,6 +54,11 @@ Column {data-width=300}
 ### Column 2 Row 2
 
 ```{r}
+DT::renderDataTable({
+  dt <- chickwts[  chickwts$feed   == input$type_of_meal
+                 & chickwts$weight <= input$weights, ] 
+  DT::datatable(dt)
+  })
 
 ```
 
